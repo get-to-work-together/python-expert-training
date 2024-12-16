@@ -1,4 +1,3 @@
-from . import math
 
 def helper():
     print('Helping ...')
