@@ -1,0 +1,15 @@
+import random
+import asyncio 
+
+async def count(i): 
+    t = random.randint(1, 5)
+    print(f'async coroutine {i} sleeping for {t} secconds')
+    await asyncio.sleep(t)
+    print(f'async coroutine {i} finished sleeping')
+
+async def main():
+    await asyncio.gather(count(1), count(2), count(3))
+
+if __name__ == "__main__": 
+    asyncio.run(main()) 
+    print('Done')

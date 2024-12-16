@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{title}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if data %}
+    <div id="book_list">
+        <table>
+            <thead>
+                {% for field in data[0].keys() %}
+                <th>{{ field }}</th>
+                {% endfor %}
+            </thead>
+            {% for row in data %}
+            <tr>
+                {% for field in data[0].keys() %}
+                <td>{{ row[field] }}</td>
+                {% endfor %}
+                <td>
+                    <form method="POST" action="/books/delete">
+                        <input type="hidden" name="id" value="{{ row['id'] }}" />
+                        <input type="submit" value="🗑" />
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+
+    <div id="add_book">
+        <h2>Add a book to the collection:</h2>
+        <form method="POST">
+            <div class="row">
+              <label>Title</label>
+              <input type="text" name="title" required />
+            </div>
+            <div class="row">
+              <label>Author</label>
+              <input type="text" name="author" required />
+            </div>
+            <div class="row">
+              <label>Year published</label>
+              <input type="text" name="year" required />
+            </div>
+            <div class="row">
+              <input type="submit" value="Add to list" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

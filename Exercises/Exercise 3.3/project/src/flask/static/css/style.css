@@ -1,0 +1,52 @@
+body {
+    background-color: #b5e7a0;
+    color: #3e4444;
+    font-family: sans-serif;
+}
+.col2 {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+}
+.row {
+    padding: 3px 0;
+}
+table {
+    border-collapse: collapse;
+}
+td {
+    background-color: #e3eaa7;
+    border: 2px solid #3e4444;
+    padding: 3px 8px;
+    text-align: left;
+    vertical-align:middle;
+}
+thead td {
+    background-color: #405d27;
+    color: #d5e1df;
+}
+
+#login {
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 20em;
+    margin: 3em auto;
+    padding: 2em;
+    box-shadow: 5px 5px 5px gray;
+}
+#login label {
+    display: inline-block;
+    width: 6em;
+}
+#login input[type="text"],
+#login input[type="password"] {
+    display: inline-block;
+    width: 14em;
+}
+
+#city-form {
+    margin: 2em 0;
+}
+img {
+    height: 25em;
+}
