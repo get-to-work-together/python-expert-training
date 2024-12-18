@@ -7,6 +7,8 @@ def myfunc(i):
     t = random.randint(1, 5)
     print(f'thread {i} sleeping for {t} secconds')
     time.sleep(t)
+    for _ in range(20):
+        print(i, end='')
     print(f'thread {i} finished sleeping')
 
 for i in range(10):

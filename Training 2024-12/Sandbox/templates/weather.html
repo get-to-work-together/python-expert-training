@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header %}
+Weather in {{ city }}
+{% endblock %}
+
+{% block content %}
+<table>
+{% for day_forecast in daily_forecasts %}
+    <tr>
+        <td>{{ day_forecast['dt'].strftime('%A') }}</td>
+        <td>{{ day_forecast['dt'].strftime('%d-%m-%Y') }}</td>
+        <td>{{ day_forecast['min_temp'] }}</td>
+        <td>{{ day_forecast['max_temp'] }}</td>
+        <td>{{ day_forecast['temp'] }}</td>
+        <td>{{ day_forecast['wind_speed'] }}</td>
+        <td>{{ day_forecast['wind_degrees'] }}</td>
+        <td>{{ day_forecast['wind_direction'] }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

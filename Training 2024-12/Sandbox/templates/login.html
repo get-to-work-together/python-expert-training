@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block header %}
+Login
+{% endblock %}
+
+{% block content %}
+<form method="POST" id="login_form">
+    <div>
+    <label>Username:</label>
+    <input type="text" name="username" id="username" value="" autocomplete="off">
+    </div>
+    <div>
+    <label>Password:</label>
+    <input type="password" name="password" id="password" value="" autocomplete="off">
+    </div>
+    <div>
+    <input type="submit" value="Login">
+    </div>
+</form>
+{% endblock %}

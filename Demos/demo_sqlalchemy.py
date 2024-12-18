@@ -5,6 +5,8 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
 
 class Base(DeclarativeBase):
     pass
@@ -19,13 +21,13 @@ class User(Base):
         return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
 
 
-from sqlalchemy import create_engine
-engine = create_engine("sqlite://", echo=True)
+
+engine = create_engine("sqlite:///example.db", echo=True)
 
 Base.metadata.create_all(engine)
 
 
-from sqlalchemy.orm import Session
+
 
 with Session(engine) as session:
     spongebob = User(
@@ -40,3 +42,27 @@ with Session(engine) as session:
 
     session.add_all([spongebob, sandy, patrick])
     session.commit()
+
+    user = User(name="Peter", fullname="Peter Anema")
+    session.add(user)
+    session.commit()
+
+    retieved = session.query(User).all()
+    for user in retieved:
+        print(user)
+
+
+    user = session.get(User, 7)
+    print(user)
+
+    retieved = session.query(User).where(User.name == 'Peter')
+    for user in retieved:
+        print(user)
+
+    retieved = session.query(User).filter(User.name == 'Peter')
+    for user in retieved:
+        print(user)
+
+
+
+

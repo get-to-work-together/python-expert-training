@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block header %}
+List of names
+{% endblock %}
+
+
+{% block content %}
+<ul>
+{% for name in names %}
+    <li>{{ name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
